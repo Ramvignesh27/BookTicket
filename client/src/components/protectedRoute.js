@@ -14,7 +14,7 @@ const ProtectedRoute = ({children}) => {
     const navigate = useNavigate();
     const {Header, Content, Footer, Sider} = Layout;
     const navItems = [{
-        label: "Home",
+        label: (<span onClick={()=>{navigate("/")}}>Home</span>),
         icon: <HomeOutlined />,
     },
     {
@@ -30,7 +30,7 @@ const ProtectedRoute = ({children}) => {
                         navigate("/partner");
                     }
                     else{
-                        navigate("/profile")
+                        navigate("/profile");
                     }
                 }}>My Profile</span>),
                 icon: <ProfileOutlined />,
