@@ -4,7 +4,7 @@ export const axiosInstance = axios.create({
     headers:  {
         "Content-Type": "application/json",
     },
-    baseURL: "http://localhost:3000",
+    baseURL: "https://bookticket-z96j.onrender.com/",
 });
 
 axiosInstance.interceptors.request.use(
