@@ -19,19 +19,7 @@ app.use(express.static(clientBuildPath));
 app.set('trust proxy', 1);
 app.use(helmet());
 app.disable("x-powered-by");
-app.use(
-    helmet.contentSecurityPolicy({
-    directives: {
-    defaultSrc: ["'self'"],
-    scriptSrc: ["'self'"],
-    styleSrc: ["'self'", "https://fonts.googleapis.com"],
-    imgSrc: ["'self'", "data:"],
-    connectSrc: ["'self'"],
-    fontSrc: ["'self'", "https://fonts.gstatic.com"],
-    objectSrc: ["'none'"],
-    },
-    })
-    );
+app.use(helmet());
 
 const mongoSantize = require("express-mongo-sanitize");
 
