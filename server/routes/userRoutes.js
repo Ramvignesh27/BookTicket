@@ -132,7 +132,9 @@ const otpGenerator = function () {
           .status(401)
           .json({ success: false, message: "OTP has expired" });
       }
-      user.password = resetDetails.password;
+      const saltRounds2=10;//Thehigherthenumber,themoresecurebutslower thehashingprocess
+      const updatedhashedPassword=await bcrypt.hash(resetDetails.password,saltRounds2);
+      user.password = updatedhashedPassword;
       user.otp = undefined;
       user.otpExpiry = undefined;
   
