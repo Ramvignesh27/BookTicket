@@ -19,7 +19,6 @@ app.use(express.static(clientBuildPath));
 app.set('trust proxy', 1);
 app.use(helmet());
 app.disable("x-powered-by");
-app.use(helmet());
 
 const mongoSantize = require("express-mongo-sanitize");
 
