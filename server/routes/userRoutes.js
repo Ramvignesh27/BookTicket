@@ -40,7 +40,8 @@ userRouter.post("/login", async (req, res)=>{
         console.log(req.body);
         
         const user = await User.findOne({email: req.body.email});
-        const token = jwt.sign({userId: user._id}, process.env.jwt_secret, {expiresIn: "1d"});
+        const secret_key = process.env.JWT_SECRET;
+        const token = jwt.sign({userId: user._id}, secret_key, {expiresIn: "1d"});
         if(!user){
             return res.send({
                 success: false,
